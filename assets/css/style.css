@@ -3,7 +3,9 @@ body {
 }
 
 .text-warning {
+    /* Animate the title to go from pink to blue */
     animation: pulsate 2s ease-in-out infinite alternate;
+    /* text-shadow for neon effect */
     color: #fff !important;
     text-shadow:
         0 0 7px #fff,
@@ -16,7 +18,7 @@ body {
         0 0 151px #5271ff;
 }
 
-
+/* pulsating effect for neon */
 @keyframes pulsate {
 
     100% {
@@ -48,16 +50,20 @@ body {
     }
 }
 
+/* media query for mobile use */
 @media (max-width: 576px) {
     canvas {
         width: 300px;
         height: 300px;
     }
-    #title{
+
+    #title {
         margin-top: 9rem !important;
         margin-left: .0125rem !important;
     }
 }
+
+/* media query for large screens */
 @media (min-width: 700px) {
     canvas {
         width: 600;

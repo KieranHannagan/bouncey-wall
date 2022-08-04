@@ -1,3 +1,4 @@
+//  frames per second
  const FPS = 30;
  // ball size
  var bs = 30
@@ -58,8 +59,8 @@
      // draw background and ball
      context.fillStyle = "white";
      context.fillRect(0, 0, canvas.width, canvas.height);
-    //  var ball = [bx,by]
-    //  ball.getContext('2d');
+
+    //  fillRect(x-starting point, y-starting point, width, height)
      context.fillStyle = "#f09";
      context.fillRect(bx - bs / 2, by - bs / 2, bs, bs);
 
