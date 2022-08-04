@@ -19,7 +19,7 @@
  bx = canvas.width / 2;
  by = canvas.height / 2;
 
- // random ball starting speed (between 50 and 100 pps)
+ // random ball starting speed (between 200 and 100 pps)
  xv = Math.floor(Math.random() * 201 + 100) / FPS
  yv = Math.floor(Math.random() * 201 + 100) / FPS
 
