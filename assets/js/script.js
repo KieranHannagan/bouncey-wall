@@ -19,8 +19,8 @@
  by = canvas.height / 2;
 
  // random ball starting speed (between 50 and 100 pps)
- xv = Math.floor(Math.random() * 100 + 75) / FPS
- yv = Math.floor(Math.random() * 100 + 75) / FPS
+ xv = Math.floor(Math.random() * 201 + 100) / FPS
+ yv = Math.floor(Math.random() * 201 + 100) / FPS
 
  // random ball direction
  if (Math.floor(Math.random() * 2) == 0) {
@@ -56,11 +56,11 @@
      }
 
      // draw background and ball
-     context.fillStyle = "black";
+     context.fillStyle = "white";
      context.fillRect(0, 0, canvas.width, canvas.height);
     //  var ball = [bx,by]
     //  ball.getContext('2d');
-     context.fillStyle = "yellow";
+     context.fillStyle = "blue";
      context.fillRect(bx - bs / 2, by - bs / 2, bs, bs);
 
  }
