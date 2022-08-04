@@ -60,7 +60,7 @@
      context.fillRect(0, 0, canvas.width, canvas.height);
     //  var ball = [bx,by]
     //  ball.getContext('2d');
-     context.fillStyle = "blue";
+     context.fillStyle = "#f09";
      context.fillRect(bx - bs / 2, by - bs / 2, bs, bs);
 
  }
