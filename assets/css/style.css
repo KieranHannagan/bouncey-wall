@@ -3,7 +3,7 @@ body {
 }
 
 .text-warning {
-    animation: pulsate 2s ease-in-out infinite alternate;     
+    animation: pulsate 2s ease-in-out infinite alternate;
     color: #fff !important;
     text-shadow:
         0 0 7px #fff,
@@ -45,5 +45,21 @@ body {
             0 0 94px #f09,
             0 0 140px #f09;
 
+    }
+}
+
+@media (max-width: 576px) {
+    canvas {
+        width: 300px;
+        height: 300px;
+    }
+    #title{
+        margin-top: 9rem !important;
+    }
+}
+@media (min-width: 700px) {
+    canvas {
+        width: 600;
+        height: 600;
     }
 }
