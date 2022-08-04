@@ -55,6 +55,7 @@ body {
     }
     #title{
         margin-top: 9rem !important;
+        margin-left: .0125rem !important;
     }
 }
 @media (min-width: 700px) {
