@@ -1,67 +1,69 @@
-//  frames per second
- const FPS = 30;
- // ball size
- var bs = 30
- // X and Y position
- var bx, by;
- // X and Y velocity
- var xv, yv;
- var canvas, context;
+/*
+ *  script.js
+ *  BallBounce Demo
+ *
+ *  Created by Kieran Hannagan on Aug 9, 2022
+ *  Copyright 2022 Old Red Inc. - All Rights Reserved
+ *
+ */
 
- // load canvas
- canvas = document.getElementById('gameCanvas');
- context = canvas.getContext('2d');
 
- // set up interval (game loop)
- setInterval(update, 1000 / FPS);
+// load canvas
+let canvas = document.getElementById('gameCanvas');
+let context = canvas.getContext('2d');
 
- // ball starting position 
- bx = canvas.width / 2;
- by = canvas.height / 2;
+// game constants
+const FPS = 30;                                             // target fps
+const PIXPERTICK = 20;                                      // pixels per tick
+const VEL = PIXPERTICK;                                     // velocity
+const BS = 30;                                              // ball size
 
- // random ball starting speed (between 200 and 100 pps)
- xv = Math.floor(Math.random() * 201 + 100) / FPS
- yv = Math.floor(Math.random() * 201 + 100) / FPS
+const LE = 0 + BS / 2;                                      // left edge
+const RE = (canvas.width) - BS / 2;                         // right edge
+const TE = 0 + BS / 2;                                      // top edge
+const BE = (canvas.height) - BS / 2;                        // bottom edge
 
- // random ball direction
- if (Math.floor(Math.random() * 2) == 0) {
-     xv = -xv;
- }
- if (Math.floor(Math.random() * 2) == 0) {
-     yv = -yv;
- }
+let bx, by;                                                 // X and Y position
+let xv, yv;                                                 // X and Y velocity
 
- function update() {
-     // move the ball
-     // every frame the x-axis velocity will shift this amount
-     bx += xv;
-     by += yv;
+setInterval(update, 1000 / FPS);                            // set up interval (game loop)
 
-     // wall detection 
-     // traveling left
-     if (bx - bs / 2 < 0 && xv < 0) {
+bx = canvas.width / 2;                                      // ball starting position 
+by = canvas.height / 2;
 
-         xv = -xv
-     }
-     // traveling right
-     if (bx + bs / 2 > canvas.width && xv > 0) {
-         xv = -xv
-     }
-     // traveling upwards
-     if (by - bs / 2 < 0 && yv < 0) {
-         yv = -yv
-     }
-     // traveling downwards
-     if (by + bs / 2 > canvas.height && yv > 0) {
-         yv = -yv
-     }
+const STARTANGLE = Math.random() * Math.PI * 2 - Math.PI;      // random ball starting speed (between 200 and 100 pps)
+console.log(STARTANGLE);
+// the magic number -2.352361043572752
 
-     // draw background and ball
-     context.fillStyle = "white";
-     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    //  fillRect(x-starting point, y-starting point, width, height)
-     context.fillStyle = "#f09";
-     context.fillRect(bx - bs / 2, by - bs / 2, bs, bs);
+xv = Math.sin(STARTANGLE) * VEL;
+yv = Math.cos(STARTANGLE) * VEL;
 
- }
+function update() {
+    bx += xv;                                               // every frame the x-axis velocity will shift this amount
+    by += yv;                                               // move the ball
+
+    // traveling left
+    if (bx < LE) {
+        xv = -xv;
+    }
+    // traveling right
+    if (bx > RE) {
+        xv = -xv;
+    }
+    // traveling up
+    if (by < TE) {
+        yv = -yv;
+    }
+    // traveling down
+    if (by > BE) {
+        yv = -yv;
+    }
+
+    // draw background and ball
+    context.fillStyle = "white";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    context.fillStyle = "#f09";                             // Ball
+    context.fillRect(bx - BS / 2, by - BS / 2, BS, BS);     // fillRect(x-starting point, y-starting point, width, height)
+}
